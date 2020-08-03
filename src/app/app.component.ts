@@ -10,17 +10,23 @@ import { Task } from '../models';
 export class AppComponent implements OnInit {
   title = 'todos-with-datastore';
 
-  async ngOnInit() {
-    const tasks = await DataStore.query(Task);
-    console.log('AppComponent -> ngOnInit -> tasks', tasks);
+  tasks: Task[];
+
+  ngOnInit() {
+    this.updateTasks();
+  }
+
+  async updateTasks() {
+    this.tasks = await DataStore.query(Task);
   }
 
   async addTask() {
     const res = await DataStore.save(
       new Task({
-        title: 'New Task',
+        title: `New Task ${Math.round(Math.random() * 1000)}`,
       })
     );
+    await this.updateTasks();
     console.log('AppComponent -> addTask -> res', res);
   }
 }
