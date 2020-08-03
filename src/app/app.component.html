@@ -2,4 +2,6 @@
   <p *ngFor="let task of tasks">{{ task.title }}</p>
 </div>
 
+<h3>Task Count: {{ tasks.length }}</h3>
+
 <button (click)="addTask()">Add Task</button>
