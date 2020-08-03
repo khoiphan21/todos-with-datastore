@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "todos-with-datastore"
+    }
+  },
+  "defaultProject": "todos-with-datastore",
+  "cli": {
+    "analytics": false
+  }
 }
