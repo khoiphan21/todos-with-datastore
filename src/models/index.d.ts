@@ -16,6 +16,26 @@ export declare class Task {
 export declare class Note {
   readonly id: string;
   readonly content: string;
+  readonly taskId?: string;
   constructor(init: ModelInit<Note>);
   static copyOf(source: Note, mutator: (draft: MutableModel<Note>) => MutableModel<Note> | void): Note;
+}
+
+export declare class Account {
+  readonly id: string;
+  readonly version?: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  readonly createdBy?: string;
+  readonly updatedBy?: string;
+  readonly cognitoId?: string;
+  readonly email?: string;
+  readonly firstName?: string;
+  readonly lastName?: string;
+  readonly workspaces: string[];
+  readonly formSharingConfigs: string[];
+  readonly assignedForms: string[];
+  readonly activeNavBarView?: string;
+  constructor(init: ModelInit<Account>);
+  static copyOf(source: Account, mutator: (draft: MutableModel<Account>) => MutableModel<Account> | void): Account;
 }
